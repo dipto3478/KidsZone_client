@@ -48,7 +48,7 @@ const NavBar = () => {
               {nav}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+          <Link className="text-xl font-bold">KidsZone</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{nav}</ul>
