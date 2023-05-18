@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -28,6 +29,20 @@ const AddToy = () => {
       email,
     };
     console.log(productDetails);
+    fetch("http://localhost:5000/upload", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(productDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire("Good job!", "Successfully Added Product", "success");
+        }
+      });
   };
   return (
     <div className="mb-10">
@@ -89,14 +104,14 @@ const AddToy = () => {
             <span className="label-text">Sub-category</span>
           </label>
           <select
-            defaultValue={"Educational"}
+            defaultValue={"Hero Toys"}
             className="select select-bordered"
             name="sub_category"
           >
-            <option value="Educational">Educational</option>
+            <option value="Hero Toys">Hero Toys</option>
             <option value="Car Toys">Car Toys</option>
-            <option value="Language Toys">Language Toys</option>
-            <option value="Science Toys">Science Toys</option>
+            <option value="Bike Toys">Bike Toys</option>
+            <option value="Cricket Toys">Cricket Toys</option>
           </select>
         </div>
         <div className="form-control">
