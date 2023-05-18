@@ -2,6 +2,16 @@ import { Link } from "react-router-dom";
 import login from "../../assets/login/login.png";
 
 const Register = () => {
+  const handleRegister = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, photo, email, password);
+  };
   return (
     <div>
       <div className="hero h-[calc(100vh-103px)] ">
@@ -12,7 +22,7 @@ const Register = () => {
           <div className="card flex-shrink-0 w-full max-w-sm  bg-base-100">
             <div className="card-body">
               <h1 className="text-3xl text-center font-bold">Sign In !</h1>
-              <form>
+              <form onSubmit={handleRegister}>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Name</span>
