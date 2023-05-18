@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -15,9 +16,34 @@ const MyToys = () => {
       .then((data) => {
         setProducts(data);
         setIsLoading(false);
-        console.log(data);
+        // console.log(data);
       });
   }, [url]);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        fetch(`http://localhost:5000/mytoys/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+        const remaining = products.filter((p) => p._id !== id);
+        setProducts(remaining);
+      }
+    });
+  };
   return (
     <>
       {isLoading ? (
@@ -39,21 +65,29 @@ const MyToys = () => {
                     <th>Toy Name</th>
                     <th>Sub-category</th>
                     <th>Available Quantity</th>
-                    <th>Details</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product, index) => (
-                    <tr key={product?._id}>
-                      <td>{index + 1}</td>
-                      <td>{product?.sellerName}</td>
-                      <td>{product?.productName}</td>
-                      <td>{product?.sub_category}</td>
-                      <td>{product?.quantity}</td>
+                  {products.map((product) => (
+                    <tr key={product._id}>
+                      <td>{product.sellerName}</td>
+                      <td>{product.productName}</td>
+                      <td>{product.sub_category}</td>
+                      <td>{product.quantity}</td>
                       <td>
                         <Link className="btn" to={`/updatetoy/${product._id}`}>
-                          Edit
+                          Update
                         </Link>
+                      </td>
+                      <td>
+                        <button
+                          onClick={() => handleDelete(product._id)}
+                          className="btn"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
