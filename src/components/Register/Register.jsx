@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import login from "../../assets/login/login.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -15,15 +16,27 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photo, email, password);
-    createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
-        setError("");
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error);
-      });
+    if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
+      return;
+    } else if ((name, photo, email, password)) {
+      createUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          setError("");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Successfully register in",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        })
+        .catch((error) => {
+          console.log(error);
+          setError(error);
+        });
+    }
   };
   return (
     <div>
