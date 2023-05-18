@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/login/login.png";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -7,6 +7,10 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { loginUser, loginWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -27,6 +31,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(from, { replace: true });
       })
       .then((error) => {
         console.log(error);
@@ -34,7 +39,7 @@ const Login = () => {
       });
   };
 
-  const handleGoogleLogin = (event) => {
+  const handleGoogleLogin = () => {
     loginWithGoogle()
       .then((result) => {
         console.log(result.user);
