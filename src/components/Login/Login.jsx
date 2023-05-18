@@ -4,7 +4,7 @@ import login from "../../assets/login/login.png";
 const Login = () => {
   return (
     <div>
-      <div className="hero h-[calc(100vh-103px)] ">
+      <div className="hero min-h-full">
         <div className="hero-content flex-col lg:flex-row">
           <div className="text-center lg:text-left lg:w-1/2">
             <img src={login} alt="Login logo" />
@@ -49,7 +49,7 @@ const Login = () => {
                   <p className="text-center my-5 ">
                     Have an account?
                     <Link to="/register" className="text-orange-600 font-bold">
-                      Sign In
+                      Register
                     </Link>
                   </p>
                 </div>
@@ -62,7 +62,7 @@ const Login = () => {
                     src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
                     alt=""
                   />{" "}
-                  Sign in with google
+                  Login with google
                 </button>
               </div>
             </div>
