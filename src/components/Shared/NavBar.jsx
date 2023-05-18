@@ -16,16 +16,20 @@ const NavBar = () => {
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/">All Toys</Link>
+        <Link to="/alltoys">All Toys</Link>
       </li>
+      {user?.email && (
+        <>
+          <li>
+            <Link to="/mytoys">My Toys</Link>
+          </li>
+          <li>
+            <Link to="/addtoy">Add Toy</Link>
+          </li>
+        </>
+      )}
       <li>
-        <Link to="/">My Toys</Link>
-      </li>
-      <li>
-        <Link to="/">Add A Toy</Link>
-      </li>
-      <li>
-        <Link to="/">Blogs</Link>
+        <Link to="/blogs">Blogs</Link>
       </li>
     </>
   );
