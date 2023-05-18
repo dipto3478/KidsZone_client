@@ -3,19 +3,27 @@ import { Link } from "react-router-dom";
 
 const AllToys = () => {
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        console.log(data);
+        setIsLoading(false);
       });
   }, []);
 
   return (
     <div>
-      <h3>all toys: {products.length}</h3>
+      {isLoading && (
+        <>
+          <div className="flex justify-center items-center h-[calc(100vh-323px)]">
+            <progress className="progress w-56"></progress>
+          </div>
+        </>
+      )}
+
       <div>
         <div className="overflow-x-auto">
           <table className="table w-full">
