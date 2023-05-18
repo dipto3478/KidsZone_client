@@ -8,6 +8,7 @@ import MyToys from "../components/MyToys/MyToys";
 import AddToy from "../components/AddToy/AddToy";
 import Blogs from "../components/Blogs/Blogs";
 import PrivateRouter from "../components/PrivateRouter/PrivateRouter";
+import ToyDetails from "../components/ToyDetails/ToyDetails";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,16 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs />,
+      },
+      {
+        path: "/toydetails/:id",
+        element: (
+          <PrivateRouter>
+            <ToyDetails />
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
     ],
   },
