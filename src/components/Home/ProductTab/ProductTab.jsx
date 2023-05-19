@@ -57,7 +57,7 @@ const ProductTab = () => {
                     </figure>
                     <div className="card-body">
                       <h2 className="card-title">{product?.productName}</h2>
-                      <p>Price: {product?.price}</p>
+                      <p>Price: {"$" + product?.price}</p>
                       <p>Ratting: {product?.ratting}</p>
                       <div className="card-actions">
                         <Link
@@ -95,7 +95,7 @@ const ProductTab = () => {
                     </figure>
                     <div className="card-body">
                       <h2 className="card-title">{product?.productName}</h2>
-                      <p>Price: {product?.price}</p>
+                      <p>Price: {"$" + product?.price}</p>
                       <p>Ratting: {product?.ratting}</p>
                       <div className="card-actions">
                         <Link
@@ -133,7 +133,7 @@ const ProductTab = () => {
                     </figure>
                     <div className="card-body">
                       <h2 className="card-title">{product?.productName}</h2>
-                      <p>Price: {product?.price}</p>
+                      <p>Price: {"$" + product?.price}</p>
                       <p>Ratting: {product?.ratting}</p>
                       <div className="card-actions">
                         <Link
@@ -171,7 +171,7 @@ const ProductTab = () => {
                     </figure>
                     <div className="card-body">
                       <h2 className="card-title">{product?.productName}</h2>
-                      <p>Price: {product?.price}</p>
+                      <p>Price: {"$" + product?.price}</p>
                       <p>Ratting: {product?.ratting}</p>
                       <div className="card-actions">
                         <Link

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const AllToys = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     document.title = "All Toys";
@@ -18,6 +19,15 @@ const AllToys = () => {
       });
   }, []);
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/search?text=${searchText}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setProducts(data);
+        setIsLoading(false);
+      });
+  }, [searchText]);
+
   return (
     <>
       {isLoading ? (
@@ -29,6 +39,15 @@ const AllToys = () => {
       ) : (
         <>
           <div className="my-10">
+            <div className="flex flex-col items-center justify-center">
+              <h3 className="text-3xl font-bold text-center mb-5">All Toys</h3>
+              <input
+                onChange={(e) => setSearchText(e.target.value)}
+                type="text"
+                placeholder="search by toy name"
+                className="input input-bordered w-full   mb-5 max-w-xs"
+              />
+            </div>
             <div className="overflow-x-auto">
               <table className="table w-full">
                 {/* head */}

@@ -55,7 +55,7 @@ const AddToy = () => {
       </h3>
       <form
         onSubmit={handleAddToy}
-        className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
       >
         <div className="form-control">
           <label className="label">
