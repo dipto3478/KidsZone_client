@@ -68,6 +68,7 @@ const MyToys = () => {
                     <th>Seller Name</th>
                     <th>Toy Name</th>
                     <th>Sub-category</th>
+                    <th>Price</th>
                     <th>Available Quantity</th>
                     <th>Update</th>
                     <th>Delete</th>
@@ -75,20 +76,21 @@ const MyToys = () => {
                 </thead>
                 <tbody>
                   {products.map((product, index) => (
-                    <tr key={product._id}>
+                    <tr key={product?._id}>
                       <td>{index + 1}</td>
-                      <td>{product.sellerName}</td>
-                      <td>{product.productName}</td>
-                      <td>{product.sub_category}</td>
-                      <td>{product.quantity}</td>
+                      <td>{product?.sellerName}</td>
+                      <td>{product?.productName}</td>
+                      <td>{product?.sub_category}</td>
+                      <td>{product?.price}</td>
+                      <td>{product?.quantity}</td>
                       <td>
-                        <Link className="btn" to={`/updatetoy/${product._id}`}>
+                        <Link className="btn" to={`/updatetoy/${product?._id}`}>
                           Update
                         </Link>
                       </td>
                       <td>
                         <button
-                          onClick={() => handleDelete(product._id)}
+                          onClick={() => handleDelete(product?._id)}
                           className="btn"
                         >
                           Delete

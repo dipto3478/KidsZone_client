@@ -26,9 +26,9 @@ const ProductTab = () => {
     <div
       data-aos="fade-up"
       data-aos-anchor-placement="top-center"
-      className="my-10"
+      className="my-20"
     >
-      <h3 className="text-4xl font-bold text-center mb-5">Sub Category</h3>
+      <h3 className="text-4xl font-bold text-center mb-10">Sub Category</h3>
       <Tabs>
         <TabList>
           <Tab onClick={() => setCategory("Hero_Toys")}>Hero Toys</Tab>

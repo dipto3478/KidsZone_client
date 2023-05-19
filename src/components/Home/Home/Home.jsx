@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import ProductTab from "../../ProductTab/ProductTab";
+import ProductTab from "../ProductTab/ProductTab";
 import Banner from "../Banner/Banner";
 import Discount from "../Discount/Discount";
+import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   useEffect(() => {
@@ -12,6 +13,7 @@ const Home = () => {
       <Banner />
       <Discount />
       <ProductTab />
+      <Gallery />
     </div>
   );
 };
