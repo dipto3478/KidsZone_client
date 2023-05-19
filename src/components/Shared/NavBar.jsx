@@ -69,14 +69,20 @@ const NavBar = () => {
         <div className="navbar-end">
           {user?.email ? (
             <>
-              <p title={user?.displayName} className="w-12  rounded-full mr-2">
-                {" "}
-                <img
-                  className="border-4 border-black rounded-full"
-                  src={user?.photoURL && user?.photoURL}
-                  alt={user?.displayName}
-                />{" "}
-              </p>
+              {user?.photoURL && (
+                <p
+                  title={user?.displayName}
+                  className="w-12  rounded-full mr-2"
+                >
+                  {" "}
+                  <img
+                    className="border-4 border-black rounded-full"
+                    src={user?.photoURL}
+                    alt={user?.displayName}
+                  />{" "}
+                </p>
+              )}
+              {!user?.photoURL && <p>{user?.email}</p>}
               <button onClick={handleLogout} to="/login" className="btn">
                 Log Out
               </button>

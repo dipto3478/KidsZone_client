@@ -1,9 +1,14 @@
 import { Link, useRouteError } from "react-router-dom";
 import page from "../../assets/404-page/page-not-found.svg";
+import { useEffect } from "react";
 
 const ErrorPage = () => {
   const { error, state } = useRouteError();
   console.log(error);
+
+  useEffect(() => {
+    document.title = "Error page";
+  });
 
   return (
     <>

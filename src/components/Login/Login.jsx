@@ -1,16 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/login/login.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { loginUser, loginWithGoogle } = useContext(AuthContext);
   const [error, setError] = useState("");
-  const location = useLocation();
-  const navigate = useNavigate();
+  useEffect(() => {
+    document.title = "Login";
+  });
+  let navigate = useNavigate();
+  let location = useLocation();
 
-  const from = location.state?.from?.pathname || "/";
+  let from = location.state?.from?.pathname || "/";
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -50,6 +53,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate(from, { replace: true });
       })
       .then((error) => {
         console.log(error);

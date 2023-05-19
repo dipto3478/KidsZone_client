@@ -1,9 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    document.title = "Add Toy";
+  });
 
   const handleAddToy = (event) => {
     event.preventDefault();
@@ -108,10 +112,10 @@ const AddToy = () => {
             className="select select-bordered"
             name="sub_category"
           >
-            <option value="Hero Toys">Hero Toys</option>
-            <option value="Car Toys">Car Toys</option>
-            <option value="Bike Toys">Bike Toys</option>
-            <option value="Cricket Toys">Cricket Toys</option>
+            <option value="Hero_Toys">Hero Toys</option>
+            <option value="Car_Toys">Car Toys</option>
+            <option value="Bike_Toys">Bike Toys</option>
+            <option value="Cricket_Toys">Cricket Toys</option>
           </select>
         </div>
         <div className="form-control">

@@ -6,6 +6,10 @@ const AllToys = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    document.title = "All Toys";
+  });
+
+  useEffect(() => {
     fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => {
@@ -34,6 +38,7 @@ const AllToys = () => {
                     <th>Seller Name</th>
                     <th>Toy Name</th>
                     <th>Sub-category</th>
+                    <th>Price</th>
                     <th>Available Quantity</th>
                     <th>Details</th>
                   </tr>
@@ -45,6 +50,7 @@ const AllToys = () => {
                       <td>{product?.sellerName}</td>
                       <td>{product?.productName}</td>
                       <td>{product?.sub_category}</td>
+                      <td>{product?.price}</td>
                       <td>{product?.quantity}</td>
                       <td>
                         <Link className="btn" to={`/toydetails/${product._id}`}>

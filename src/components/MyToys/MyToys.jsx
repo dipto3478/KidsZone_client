@@ -8,6 +8,10 @@ const MyToys = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    document.title = "My Toys";
+  });
+
   const url = `http://localhost:5000/mytoys?email=${user.email}`;
 
   useEffect(() => {
@@ -70,8 +74,9 @@ const MyToys = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {products.map((product) => (
+                  {products.map((product, index) => (
                     <tr key={product._id}>
+                      <td>{index + 1}</td>
                       <td>{product.sellerName}</td>
                       <td>{product.productName}</td>
                       <td>{product.sub_category}</td>

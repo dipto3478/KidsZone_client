@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const Blogs = () => {
+  useEffect(() => {
+    document.title = "Blogs";
+  });
   return (
     <section className="my-10 space-y-5">
       <h3 className="text-3xl font-bold mb-5 text-center underline">Blogs</h3>

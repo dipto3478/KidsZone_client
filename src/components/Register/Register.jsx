@@ -1,12 +1,15 @@
 import { Link } from "react-router-dom";
 import login from "../../assets/login/login.png";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
+  useEffect(() => {
+    document.title = "Register";
+  });
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -17,6 +20,7 @@ const Register = () => {
     const password = form.password.value;
     console.log(name, photo, email, password);
     if (!/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(password)) {
+      setError("Minimum six characters, at least one letter and one number:");
       return;
     } else if ((name, photo, email, password)) {
       createUser(email, password)
