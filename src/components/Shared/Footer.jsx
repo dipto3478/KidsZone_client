@@ -1,17 +1,9 @@
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css"; // You can also use <link> for styles
-// ..
-AOS.init();
 
 const Footer = () => {
   return (
     <>
-      <footer
-        data-aos="fade-up"
-        data-aos-anchor-placement="top-center"
-        className="footer place-items-center p-10 bg-base-200 text-base-content"
-      >
+      <footer className="footer place-items-center p-10 bg-base-200 text-base-content">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>

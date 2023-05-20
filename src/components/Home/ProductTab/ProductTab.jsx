@@ -107,7 +107,15 @@ const ProductTab = () => {
                     <div className="card-body">
                       <h2 className="card-title">{product?.productName}</h2>
                       <p>Price: {"$" + product?.price}</p>
-                      <p>Ratting: {product?.ratting}</p>
+                      <p className="flex items-center gap-2">
+                        <span>Rating:</span>
+                        <ReactStars
+                          count={product?.ratting}
+                          size={24}
+                          color1={"#ffd700"}
+                        />
+                        {product?.ratting}
+                      </p>
                       <div className="card-actions">
                         <Link
                           to={`/toydetails/${product._id}`}
@@ -145,7 +153,15 @@ const ProductTab = () => {
                     <div className="card-body">
                       <h2 className="card-title">{product?.productName}</h2>
                       <p>Price: {"$" + product?.price}</p>
-                      <p>Ratting: {product?.ratting}</p>
+                      <p className="flex items-center gap-2">
+                        <span>Rating:</span>
+                        <ReactStars
+                          count={product?.ratting}
+                          size={24}
+                          color1={"#ffd700"}
+                        />
+                        {product?.ratting}
+                      </p>
                       <div className="card-actions">
                         <Link
                           to={`/toydetails/${product._id}`}
@@ -183,7 +199,15 @@ const ProductTab = () => {
                     <div className="card-body">
                       <h2 className="card-title">{product?.productName}</h2>
                       <p>Price: {"$" + product?.price}</p>
-                      <p>Ratting: {product?.ratting}</p>
+                      <p className="flex items-center gap-2">
+                        <span>Rating:</span>
+                        <ReactStars
+                          count={product?.ratting}
+                          size={24}
+                          color1={"#ffd700"}
+                        />
+                        {product?.ratting}
+                      </p>
                       <div className="card-actions">
                         <Link
                           to={`/toydetails/${product._id}`}
