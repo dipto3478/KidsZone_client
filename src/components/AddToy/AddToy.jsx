@@ -33,7 +33,7 @@ const AddToy = () => {
       email,
     };
     console.log(productDetails);
-    fetch("http://localhost:5000/upload", {
+    fetch("https://b7a11-toy-marketplace-server-side.vercel.app/upload", {
       method: "POST",
       headers: {
         "content-type": "application/json",

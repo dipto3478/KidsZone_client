@@ -13,7 +13,9 @@ const ProductTab = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/tab/${category}`)
+    fetch(
+      `https://b7a11-toy-marketplace-server-side.vercel.app/tab/${category}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

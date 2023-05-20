@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import login from "../../assets/login/login.png";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
@@ -10,6 +10,10 @@ const Register = () => {
   useEffect(() => {
     document.title = "Register";
   });
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleRegister = (event) => {
     event.preventDefault();
 
@@ -35,6 +39,7 @@ const Register = () => {
             timer: 1500,
           });
           form.reset();
+          navigate(from, { replace: true });
         })
         .catch((error) => {
           console.log(error);

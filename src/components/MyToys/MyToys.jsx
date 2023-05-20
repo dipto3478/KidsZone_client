@@ -12,7 +12,7 @@ const MyToys = () => {
     document.title = "My Toys";
   });
 
-  const url = `http://localhost:5000/mytoys?email=${user.email}`;
+  const url = `https://b7a11-toy-marketplace-server-side.vercel.app/mytoys?email=${user.email}`;
 
   useEffect(() => {
     fetch(url)
