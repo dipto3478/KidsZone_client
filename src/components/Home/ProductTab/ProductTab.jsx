@@ -33,7 +33,7 @@ const ProductTab = () => {
     >
       <h3 className="text-4xl font-bold text-center mb-10">Sub Category</h3>
       <Tabs>
-        <TabList>
+        <TabList className="grid grid-cols-2">
           <Tab onClick={() => setCategory("Hero_Toys")}>Hero Toys</Tab>
           <Tab onClick={() => setCategory("Car_Toys")}>Car Toys</Tab>
           <Tab onClick={() => setCategory("Bike_Toys")}>Bike Toys</Tab>
