@@ -36,9 +36,12 @@ const MyToys = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
-        fetch(`http://localhost:5000/mytoys/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://b7a11-toy-marketplace-server-side.vercel.app/mytoys/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

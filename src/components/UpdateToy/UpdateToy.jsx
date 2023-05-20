@@ -13,13 +13,16 @@ const UpdateToy = () => {
     const description = form.description.value;
     const update = { price, quantity, description };
     console.log(update);
-    fetch(`http://localhost:5000/mytoys/${product._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(update),
-    })
+    fetch(
+      `https://b7a11-toy-marketplace-server-side.vercel.app/mytoys/${product._id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(update),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

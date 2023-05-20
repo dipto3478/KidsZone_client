@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import banner from "../../../assets/banner/banner.jpg";
 const Banner = () => {
   return (
@@ -20,7 +21,9 @@ const Banner = () => {
               The right toys can help children explore their interests, develop
               their skills, and reach their full potential.
             </p>
-            <button className="btn ">Buy Now</button>
+            <Link to="/alltoys" className="btn ">
+              Visit Now
+            </Link>
           </div>
         </div>
       </div>

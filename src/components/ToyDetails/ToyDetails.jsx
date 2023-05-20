@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, useLoaderData } from "react-router-dom";
+import ReactStars from "react-stars";
 
 const ToyDetails = () => {
   const toy = useLoaderData();
@@ -29,7 +30,12 @@ const ToyDetails = () => {
             </p>
             <p className="text-lg font-semibold">Seller Email: {toy?.email}</p>
             <p className="text-lg font-semibold">Price: {"$" + toy?.price}</p>
-            <p className="text-lg font-semibold">Ratting: {toy?.ratting}</p>
+
+            <p className="flex items-center gap-2">
+              <span>Rating:</span>
+              <ReactStars count={toy?.ratting} size={24} color1={"#ffd700"} />
+              {toy?.ratting}
+            </p>
             <p className="text-lg font-semibold">
               Available quantity: {toy?.quantity}
             </p>
